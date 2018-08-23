@@ -13,7 +13,7 @@ def get_request(url, auth=None):
 		res = s.get(url, data={}, auth=(auth.api_key, auth.api_secret))
 		res.raise_for_status()
 		return res.json()
-	except Exception, exc:
+	except Exception as exc:
 		raise_exception(res, exc)
 
 def post_request(url, data, auth=None):
@@ -27,7 +27,7 @@ def post_request(url, data, auth=None):
 		res = s.post(url, data=data, auth=(auth.api_key, auth.api_secret))
 		res.raise_for_status()
 		return res.json()
-	except Exception, exc:
+	except Exception as exc:
 		raise_exception(res, exc)
 
 def raise_exception(res, exc):
